@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indore Tourism</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+
+        header .btn {
+            padding: 10px 15px;
+            background-color: #f4e400;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-form input, .search-form select {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-form .btn {
+            padding: 12px 20px;
+            background-color: #f4e400;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .attractions {
+            padding: 20px;
+        }
+
+        .attractions h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .grid-item .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>IndoreTouri</h1>
+    </div>
+    <nav>
+        <a href="#">Tourist Spots</a>
+        <a href="#">Cuisine</a>
+        <a href="#">Local Events</a>
+    </nav>
+    <a href="#" class="btn">Sign in</a>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Discover Indore with IndoreTourism</h1>
+        <p>Explore 1,480,086 attractions in Indore and beyond!</p>
+    </div>
+</section>
+
+<div class="search-form">
+    <select>
+        <option>Discover Indore</option>
+    </select>
+    <input type="date" placeholder="Arrival Date">
+    <input type="date" placeholder="Departure Date">
+    <input type="number" placeholder="Guests">
+    <button class="btn">Search</button>
+</div>
+
+<section class="attractions">
+    <h2>Top Attractions in Indore</h2>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="palace.jpg" alt="Palaces">
+            <div class="overlay">Palaces</div>
+        </div>
+        <div class="grid-item">
+            <img src="street-food.jpg" alt="Street Food">
+            <div class="overlay">Street Food</div>
+        </div>
+        <div class="grid-item">
+            <img src="cultural-events.jpg" alt="Cultural Events">
+            <div class="overlay">Cultural Events</div>
+        </div>
+        <div class="grid-item">
+            <img src="adventure.jpg" alt="Adventure Spots">
+            <div class="overlay">Adventure Spots</div>
+        </div>
+        <div class="grid-item">
+            <img src="zoos.jpg" alt="Zoos">
+            <div class="overlay">Zoos</div>
+        </div>
+        <div class="grid-item">
+            <img src="museums.jpg" alt="Museums">
+            <div class="overlay">Museums</div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
