@@ -1,220 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IndoreTourism</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-        header {
-            background-color: #fff;
-            padding: 15px 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            display: inline;
-        }
-        header nav {
-            float: right;
-        }
-        header nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        .hero-section {
-            background: url('hero-image.jpg') no-repeat center center/cover; /* Add the appropriate background image */
-            height: 500px;
-            position: relative;
-            color: black;
-        }
-        .hero-section h2 {
-            position: absolute;
-            top: 30%;
-            left: 50px;
-            font-size: 48px;
-            font-weight: bold;
-        }
-        .search-bar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: white;
-            padding: 15px;
-            position: absolute;
-            bottom: -40px;
-            left: 50px;
-            right: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        .search-bar input, .search-bar select {
-            padding: 10px;
-            width: 20%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .search-bar button {
-            padding: 10px 20px;
-            background-color: #fdd835;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .main-content {
-            padding: 80px 50px;
-        }
-        .main-content h3 {
-            font-size: 32px;
-            margin-bottom: 30px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .grid-item {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-        }
-        .grid-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-        .grid-item h4 {
-            padding: 15px;
-            font-size: 18px;
-        }
-        .recommendations {
-            padding: 50px;
-        }
-        .recommendations .item {
-            display: inline-block;
-            width: 200px;
-            margin-right: 20px;
-        }
-        .recommendations img {
-            width: 100%;
-            height: 120px;
-            border-radius: 8px;
-        }
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin-top: 50px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Listings</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .hotel-map-container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .hotel-list {
+      width: 55%;
+      overflow-y: scroll;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .hotel-card {
+      display: flex;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .hotel-card img {
+      width: 180px;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .hotel-details {
+      padding: 15px;
+      flex: 1;
+    }
+
+    .hotel-details h3 {
+      margin: 0 0 10px;
+    }
+
+    .hotel-details p {
+      margin: 5px 0;
+      color: #444;
+    }
+
+    .price {
+      font-size: 16px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .map {
+      width: 45%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mapbox_logo_2019.svg/2560px-Mapbox_logo_2019.svg.png') no-repeat center;
+      background-size: contain;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Soul of indore</h1>
-    <nav>
-        <a href="#">Tourist Spots</a>
-        <a href="#">Cuisine</a>
-        <a href="#">Local Events</a>
-    </nav>
-</header>
-
-<section class="hero-section">
-    <h2>Discover Indore with IndoreTourism</h2>
-    <div class="search-bar">
-        <input type="text" placeholder="Explore Indore">
-        <select>
-            <option>Select date</option>
-        </select>
-        <select>
-            <option>Select date</option>
-        </select>
-        <input type="number" placeholder="Number of guests">
-        <button>Search</button>
-    </div>
-</section>
-
-<div class="main-content">
-    <h3>Top Attractions in Indore</h3>
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src ="C:/Users/VICTUS/Pictures/Screenshots"</img>
-            <img src="C:\Users\mayan\OneDrive\Documents\git-projects\minor-project\images\places.png.png" alt="Palaces">
-            <h4>Palaces</h4>
+  <div class="hotel-map-container">
+    <div class="hotel-list">
+      <div class="hotel-card">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/485557420.jpg?k=fee067fb8f997e8db87b6431872223442f6f2e27dc3c0a490b30a1f6816e6665&o=&hp=1" alt="Radisson Blu">
+        <div class="hotel-details">
+          <h3>Radisson Blu Hotel, Indore</h3>
+          <p>⭐ 4.6 (2860 reviews)</p>
+          <p>Mentions: Quiet • Green • Modern</p>
+          <p class="price">₹6,036</p>
         </div>
-        <div class="grid-item">
-            <!-- Add the "Street Food image" here -->
-            <img src="street_food.jpg" alt="Street Food">
-            <h4>Street Food</h4>
-        </div>
-        <div class="grid-item">
-            <!-- Add the "Adventure Spot image" here -->
-            <img src="adventure.jpg" alt="Adventure Spot">
-            <h4>Adventure Spots</h4>
-        </div>
-        <div class="grid-item">
-            <!-- Add the "Cultural Event image" here -->
-            <img src="cultural_event.jpg" alt="Cultural Event">
-            <h4>Cultural Events</h4>
-        </div>
-        <div class="grid-item">
-            <!-- Add the "Zoo image" here -->
-            <img src="zoo.jpg" alt="Zoo">
-            <h4>Zoos</h4>
-        </div>
-        <div class="grid-item">
-            <!-- Add the "Museum image" here -->
-            <img src="museum.jpg" alt="Museums">
-            <h4>Museums</h4>
-        </div>
-    </div>
-</div>
+      </div>
 
-<div class="recommendations">
-    <h3>Highly Recommended</h3>
-    <div class="item">
-        <img src="C:\Users\VICTUS\Desktop\sayaji palaceindore - Yahoo India Image Search results"></img>
-        <img src="hotel.jpg" alt="sayaji Hotel">
-        <p>sayajiHotel</p>
-        <p>From $130/night</p>
-    </div>
-    <div class="item">
-        <img src="C:\Users\VICTUS\Desktop\riverside resort"></img>
-        <img src="riverside.jpg" alt="Riverside Resort">
-        <p>Riverside Resort</p>
-        <p>From $180/night</p>
-    </div>
-    <div class="item">
-        <img src="C:\Users\VICTUS\Desktop\hill street_files"></img>
-        <img src="hill street_files" alt="Hilltop Retreat">
-        <p>Hilltop Retreat</p>
-        <p>From $210/night</p>
-    </div>
-    <div class="item">
-        <img src"C:\Users\VICTUS\Desktop\city center of indore_files"></img>
-        <img src="citycenter_files" alt="City Center Inn">
-        <p>City Center Inn</p>
-        <p>From $130/night</p>
-    </div>
-    <div class="item">
-        <img src="C:/Users/VICTUS/Desktop/lakeview"> </img>
-        <img src="lakeview.jpg" alt="Lakeview Garden & Resort">
-        <p>Lakeview Garden & Resort</p>
-        <p>From $70/night</p>
-    </div>
-</div>
+      <div class="hotel-card">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/345742266.jpg?k=fb33c11240d6cebb94cb34bd6c68196f859be21e4e3cd306b80006a5bf389dfc&o=&hp=1" alt="Essentia">
+        <div class="hotel-details">
+          <h3>Essentia Luxury Hotel Indore</h3>
+          <p>⭐ 4.9 (1544 reviews)</p>
+          <p>Mentions: Quaint • Luxury • Business</p>
+          <p class="price">₹5,846</p>
+        </div>
+      </div>
 
-<footer class="footer">
-    <p>&copy; 2024 IndoreTourism. All Rights Reserved.</p>
-</footer>
+      <!-- Add more hotel cards here -->
+    </div>
 
+    <div class="map">
+      <!-- You can embed Mapbox or Google Maps API here -->
+    </div>
+  </div>
 </body>
 </html>

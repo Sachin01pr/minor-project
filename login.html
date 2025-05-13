@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(120deg, #1e1e2f, #4a4a6a);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}
+
+.container {
+background: rgba(0, 0, 0, 0.7);
+padding: 2rem 2.5rem;
+border-radius: 15px;
+box-shadow: 0 0 15px rgba(0,0,0,0.6);
+width: 100%;
+max-width: 400px;
+text-align: center;
+animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+#user-men {
+font-size: 60px;
+color: #ffa500;
+margin-bottom: 0.5rem;
+}
+
+.welcome-heading {
+font-size: 1.3rem;
+margin-bottom: 1rem;
+font-weight: normal;
+}
+
+.dkp-heading {
+font-weight: bold;
+color: #ffa500;
+}
+
+.dtn-container {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 1.5rem;
+}
+
+.social-media-login,
+.social-media-login1 {
+display: inline-block;
+text-decoration: none;
+padding: 0.6rem;
+border-radius: 6px;
+color: white;
+background-color: #3b5998;
+transition: background 0.3s ease;
+}
+
+.social-media-login1 {
+background-color: #db4437;
+}
+
+.social-media-login:hover {
+background-color: #2d4373;
+}
+
+.social-media-login1:hover {
+background-color: #c23321;
+}
+
+.underline-container {
+display: flex;
+align-items: center;
+margin-bottom: 1rem;
+}
+
+.underline {
+flex: 1;
+height: 1px;
+background-color: #888;
+}
+
+.or-heading {
+padding: 0 1rem;
+font-size: 0.9rem;
+color: #ccc;
+}
+
+.input-container {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 1rem;
+}
+
+.input-box,
+.input-box1 {
+padding: 0.7rem;
+border: none;
+border-radius: 6px;
+font-size: 1rem;
+outline: none;
+}
+
+.login-btn {
+background-color: #ffa500;
+color: black;
+padding: 0.7rem;
+border-radius: 6px;
+text-decoration: none;
+font-weight: bold;
+transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+background-color: #e69500;
+}
+
+.forget-password {
+color: #ccc;
+text-decoration: none;
+font-size: 0.9rem;
+margin-top: 0.5rem;
+display: inline-block;
+transition: color 0.3s;
+}
+
+.forget-password:hover {
+color: #ffa500;
+}
+
+.register {
+margin-top: 1rem;
+font-size: 0.9rem;
+}
+
+.Register-now {
+color: #ffa500;
+text-decoration: none;
+font-weight: bold;
+}
+
+.Register-now:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+.container {
+padding: 1.5rem;
+width: 90%;
+}
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+</head>
+<body>
+    <div class="container">
+        <i id="user-men" class="fa fa-user-plus" aria-hidden="true"></i>
+        <h2 class="welcome-heading">welcome to <span class="dkp-heading">Soul of Indore</span> login</h2>
+        <div class="dtn-container">
+            <a class="social-media-login" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i>facebook</a>
+            <a class="social-media-login1" href="#"><i class="fa fa-google" aria-hidden="true"></i>Google</a>
+        </div>
+        <div class="underline-container">
+            <div class="underline"></div>
+            <p class="or-heading">or</p>
+            <div class="underline"></div>
+
+        </div>
+        <div class="input-container">
+            <input class="input-box"type="text" placeholder="username">
+            <input class="input-box1"type="password" placeholder="password">
+            <a class="login-btn" href="todo.html">login</a>
+
+        </div>
+        <a  class="forget-password" href="">forget password?</a>
+        <p class="register">Don't have an account <a  class="Register-now"href="">Register Now</a></p>
+    </div>
+</body>
+</html>
