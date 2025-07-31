@@ -1,0 +1,299 @@
+/* General Body and Font */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #242121;
+}
+
+/* Keyframe for Fade-in Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 1000;
+    background-color: transparent;
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(240, 238, 238, 0.74);
+    color: black;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 160px;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/indore.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    z-index: 1;
+}
+
+.hero-section h1,
+.hero-section p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Headings */
+.centered-heading {
+    font-size: 5rem;
+    color: #f0f0f0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-weight: 200;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    text-align: center;
+    font-weight: 200;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 1.2s;
+}
+
+/* Site Name */
+.site-name {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    z-index: 10;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+
+/* Scroll Down Link */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    z-index: 10;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 300px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Places Section */
+.places-section {
+    padding: 50px 0;
+    background: url('chauraya.jpeg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+}
+
+.places-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Grid for Place Cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.place-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.place-card:hover {
+    transform: scale(1.05);
+}
+
+.place-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.place-card h3 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #fff;
+}
+
+.place-card p {
+    color: #ccc;
+    font-size: 1rem;
+}
+.footer {
+  background-color: #3170cf;
+  color: white;
+  text-align: center;
+  
+  position: relative; /* Sticky footer */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  padding: 10px 0; /* Smaller height */
+}
+
+.footer-content {
+  max-width: 600px; /* Increase width for better layout */
+  margin: 0 auto;
+  font-size: 14px; /* Smaller font size */
+}
+
+.footer a {
+  color: #ffffffcc;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+  font-size: 14px; /* Consistent font size */
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
