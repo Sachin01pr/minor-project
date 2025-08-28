@@ -5,34 +5,42 @@ from joblib import load
 model = load(r'C:\Users\mayan\OneDrive\Documents\git-projects\minor-project\minor-project-7sem\attrition_model.pkl')
 data = pd.read_csv(r'C:\Users\mayan\OneDrive\Documents\git-projects\minor-project\minor-project-7sem\hr_manages.csv')
 
-results = {}
-for cols in data.columns:
-    if data[cols].nunique()< 10:
-        list = data[cols].unique().tolist()
-        name_of_input = data[cols].name 
-        name_of_input = st.selectbox(f"select {name_of_input}" , list)
-        results[cols] = name_of_input
+personal = ["age","gender","maritalstatus","education","educationfield","distancefromhome","numcompaniesworked"]
 
-st.dataframe(pd.DataFrame([results]))
-        
-"""
 
-st.title("HR Attrition Prediction")
+job_related = ["businesstravel", "department","jobrole","joblevel","monthlyincome","monthlyrate","hourlyrate",
+               "dailyrate","overtime","stockoptionlevel","percentsalaryhike","performancerating","yearsatcompany"
+               ,"yearsincurrentrole","yearssincelastpromotion","yearswithcurrmanager","totalworkingyears"]
 
-excepted_features = ['age', 'businesstravel', 'dailyrate', 'department', 'distancefromhome',
-       'education', 'educationfield', 'environmentsatisfaction', 'gender',
-       'hourlyrate', 'jobinvolvement', 'joblevel', 'jobrole',
-       'jobsatisfaction', 'maritalstatus', 'monthlyincome', 'monthlyrate',
-       'numcompaniesworked', 'overtime', 'percentsalaryhike',
-       'performancerating', 'relationshipsatisfaction', 'stockoptionlevel',
-       'totalworkingyears', 'trainingtimeslastyear', 'worklifebalance',
-       'yearsatcompany', 'yearsincurrentrole', 'yearssincelastpromotion',
-       'yearswithcurrmanager']
-
-age = st.slider('Age' , 18 , 60 , 25)
-gender = st.selectbox(["Female" , "Male"] ,"Enter gender: ")
-maritalstatus = st.selectbox(["Divorced" , "Married" , "Single"] ,"Enter marital status: ")
-department = st.selectbox(["Human Resources" , "Research & Development" , "Sales"] ,"Enter department: ")
-overtime = st.selectbox(["No" , "Yes"] , "Does overtime:")
-businesstravel = st.selectbox(["Non-Travel" , "Travel_Frequently" , "Travel_Rarely"] , "Business travel frequency:")
-"""
+satisfaction = [ "environmentsatisfaction", "jobsatisfaction", "relationshipsatisfaction", "worklifebalance", "trainingtimeslastyear", "jobinvolvement"]
+st.title("Employee Details")
+st.sidebar.subheader("Please enter the following details:")
+perinfo = {}
+for main_col in [personal , job_related , satisfaction]:
+    st.sidebar.subheader(f"Enter {main_col[0].capitalize()} related details:")
+    for col in main_col:
+        if data[col].nunique()< 10 :
+            list = data[col].unique().tolist()
+            name_of_input = data[col].name
+            value_of_input = st.sidebar.selectbox(f"select {name_of_input}" , list)
+            perinfo[name_of_input] = value_of_input
+        elif data[col].nunique()>= 10 and data[col].dtype == 'int64':
+            min_value = int(data[col].min())
+            max_value = int(data[col].max())
+            name_of_input = str(data[col].name)
+            value_of_input = st.slider(f"select {name_of_input}" , min_value , max_value , int(data[col].mean()))
+            perinfo[name_of_input] = value_of_input
+        elif data[col].nunique()>= 10 and data[col].dtype == 'object':
+            name_of_input = data[col].name
+            value_of_input = st.selectbox(f"select {name_of_input}" , data[col].unique().tolist())
+            perinfo[name_of_input] = value_of_input
+st.subheader("Employee details you entered:")
+st.dataframe(pd.DataFrame(perinfo , index=[0]))
+print(perinfo)
+input_df = pd.DataFrame([perinfo])
+if st.button("Predict Attrition"):
+    result = model.predict(input_df)[0]
+    if result == 1:
+        st.error("The employee is likely to leave the company.")
+    else:
+        st.success("The employee is likely to stay with the company.")
