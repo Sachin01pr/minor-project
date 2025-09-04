@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 from joblib import load
 
-model = load(r'C:\Users\mayan\OneDrive\Documents\git-projects\minor-project\minor-project-7sem\attrition_model.pkl')
-data = pd.read_csv(r'C:\Users\mayan\OneDrive\Documents\git-projects\minor-project\minor-project-7sem\hr_manages.csv')
+model = load(r'C:\Users\sachi\Desktop\vishal\minor-project\minor-project-7sem\attrition_model.pkl')
+data = pd.read_csv(r'C:\Users\sachi\Desktop\vishal\minor-project\minor-project-7sem\hr_manages.csv')
 
 personal = ["age","gender","maritalstatus","education","educationfield","distancefromhome","numcompaniesworked"]
 
